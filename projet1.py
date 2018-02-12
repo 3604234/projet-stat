@@ -1,4 +1,5 @@
 import numpy as np
+from np.random import permutation
 import email
 import re
 
@@ -34,7 +35,9 @@ def get_emails_from_file(f):
     return [ s for s in [clean_body(get_body(email.message_from_bytes(x))) for x in mails] if s !=""]
 
 def split(liste, x):
-    split_indexes = np.random.randint(0, len(liste) - 1, len(liste))
+    """split_indexes = np.random.randint.(0, len(liste) - 1, len(liste))"""
+    split_indexes = np.random.randint.permutation(0, len(liste) - 1, len(liste))
+  """  permut_split = permute (split_indexes)"""
     split_index = int(x * len(liste))
     splitted_1 = [liste[split_indexes[i]] for i in range(split_index)]
     splitted_2 = [liste[split_indexes[i]] for i in range(split_index, len(liste))]
@@ -48,6 +51,34 @@ def histogram(mail_list):
             bins[length] = 0
         bins[length] += 1
     return bins
+
+def apprend_modele(spam,nonspam) :
+    
+    for ensSpam in spam:
+        l= len(ensSpam)
+        """if ensSpam in get_emails_from_file("spam.txt" )"""
+            resSp= "P(X=",l,"|Y=1)"
+            return resSp
+    for ensNoSpam in nonspam:
+        l= len(ensNoSpam)   
+            resNoSp= "P(X=",l,"|Y=1)" 
+            return resNoSp
+
+def predit_email(emails,modele):
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 spam = get_emails_from_file("spam.txt" )
 nospam = get_emails_from_file("nospam.txt")
